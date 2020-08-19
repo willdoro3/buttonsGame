@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Scoreboard</title>
+    </head>
+    <body>
+        <div style = text-align:center>
+        <h1>THE CLICKING GAME</h1>
+        <h4>Basically whoever goes first wins</h4><br><br><br>
+        <h1><span id = "p1Number">0</span> - <span id = "p2Number">0</span></h1>
+        <p id = "para">First to 5 Wins</p>
+        <button id = "p1">Player 1</button>
+        <button id = "p2">Player 2</button>
+        <button id = "reset">Reset</button>
+        </div>
+
+        <!-- JavaScript -->
+        <script>
+            var p1Button = document.getElementById('p1');
+            var p2Button = document.getElementById('p2');
+            var p1Number = document.getElementById("p1Number");
+            var p2Number = document.getElementById("p2Number");
+            var para = document.getElementById("para");
+            var p1Score = 0;
+            var p2Score = 0;
+            var winningScore = 5;
+            var gameOver = false; 
+            var reset = document.getElementById("reset");
+
+          
+
+            p1Button.addEventListener('click', function (){
+                
+                if (gameOver == false){
+                    p1Score += 1
+                    if (p1Score == winningScore){
+                        gameOver = true
+                        para.textContent = "Player 1 Wins!"
+                }
+                    p1Number.textContent = p1Score
+            }
+            });
+
+            p2Button.addEventListener('click', function (){
+                if (gameOver == false) {
+                    p2Score += 1
+                    if (p2Score == winningScore){
+                        gameOver = true;
+                        para.textContent = "Player 2 Wins!"
+                }
+                    p2Number.textContent = p2Score 
+            }
+            });
+
+            reset.addEventListener('click', function (){
+
+                p1Score = 0
+                p2Score = 0
+                p1Number.textContent = p1Score
+                p2Number.textContent = p2Score
+                para.textContent = "First to 5 Wins"
+                gameOver = false
+            
+            });
+       
+
+        </script> <!--End of JavaScript-->
+    </body>
+</html>
